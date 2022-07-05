@@ -2,10 +2,11 @@
 
 const inputSearch = document.querySelector('.js-input');
 const buttonSearch = document.querySelector('.js-button');
+const resultsList = document.querySelector('.js-listElements');
+
 let heroes = [];
 
-function validateInput(event) {
-  event.preventDefault();
+function validateInput() {
   if (inputSearch.value === '') {
     alert('Debes rellenar todos los campos');
   } else {
@@ -14,13 +15,39 @@ function validateInput(event) {
 }
 
 function getApiData() {
-  fetch(`https://www.superheroapi.com/api.php/7559222877485453/search/batman`)
+  fetch(
+    `https://www.superheroapi.com/api.php/7559222877485453/search/${inputSearch.value}`
+  )
     .then((response) => response.json())
     .then((data) => {
       heroes = data.results;
+      renderResults(heroes);
       console.log(heroes);
     });
 }
-buttonSearch.addEventListener('click', validateInput);
+function renderResults(heroes) {
+  let html = '';
+  if (heroes === undefined) {
+    console.log('entro');
+    html = `nooooo`;
+  } else {
+    for (const heroe of heroes) {
+      html += `<li>`;
+      html += `<img src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
+      html += `</li>`;
+      html += `<li>`;
+      html += `<p>${heroe.name}</p>`;
+      html += `</li>`;
+    }
+  }
+  resultsList.innerHTML = html;
+}
+
+function handleClickSearch(event) {
+  event.preventDefault();
+  validateInput();
+}
+
+buttonSearch.addEventListener('click', handleClickSearch);
 
 //# sourceMappingURL=main.js.map
