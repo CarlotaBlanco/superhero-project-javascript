@@ -3,6 +3,7 @@
 const inputSearch = document.querySelector('.js-input');
 const buttonSearch = document.querySelector('.js-button');
 const resultsList = document.querySelector('.js-listElements');
+const resetButton = document.querySelector('.js-reset');
 
 let heroes = [];
 
@@ -43,11 +44,18 @@ function renderResults(heroes) {
   resultsList.innerHTML = html;
 }
 
+function resetResults() {
+  heroes = [];
+  resultsList.innerHTML = '';
+  inputSearch.value === '';
+}
+
 function handleClickSearch(event) {
   event.preventDefault();
   validateInput();
 }
 
 buttonSearch.addEventListener('click', handleClickSearch);
+resetButton.addEventListener('click', resetResults);
 
 //# sourceMappingURL=main.js.map
