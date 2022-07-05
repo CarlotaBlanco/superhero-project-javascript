@@ -22,3 +22,5 @@ function getApiData() {
     });
 }
 buttonSearch.addEventListener('click', validateInput);
+
+//# sourceMappingURL=main.js.map

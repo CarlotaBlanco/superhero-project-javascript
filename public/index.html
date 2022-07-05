@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buscador de superhéroes</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="page__header"></header>
+
+      <main>
+        <section class="form">
+          <form>
+            <label for="search">Busca a tu héroe:</label>
+            <input
+              class="js-input form__input"
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Ej.: Batman"
+            />
+            <input class="js-button button" type="submit" value="Buscar" />
+            <input class="js-reset reset" type="reset" value="Reset" />
+          </form>
+        </section>
+        <section class="container">
+          <article class="results">
+            <ul class="js-listElements listresults"></ul>
+          </article>
+        </section>
+      </main>
+
+      <footer class="page__footer"></footer>
+    </div>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
