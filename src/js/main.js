@@ -29,15 +29,13 @@ function getApiData() {
 function renderResults(heroes) {
   let html = '';
   if (heroes === undefined) {
-    console.log('entro');
     html = `nooooo`;
   } else {
     for (const heroe of heroes) {
-      html += `<li>`;
-      html += `<img src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
-      html += `</li>`;
-      html += `<li>`;
-      html += `<p>${heroe.name}</p>`;
+      html += `<li class="listresults__item">`;
+      html += `<img class="listresults__item--img" src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
+      html += `<p  class="listresults__item--name" >${heroe.name}</p>`;
+
       html += `</li>`;
     }
   }

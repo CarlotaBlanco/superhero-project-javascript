@@ -1,0 +1,19 @@
+.listresults {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  padding: 2%;
+}
+
+.listresults__item {
+  list-style-type: none;
+  margin: 2%;
+}
+
+.listresults__item--img {
+  width: 20rem;
+  height: 25rem;
+}
+.listresults__item--name {
+  background-color: black;
+}
