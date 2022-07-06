@@ -24,16 +24,27 @@ function getApiData() {
     .then((response) => response.json())
     .then((data) => {
       heroes = data.results;
-      renderResults(heroes);
+      renderResults();
     });
 }
-function renderResults(heroes) {
+function renderResults() {
   let html = '';
   if (heroes === undefined) {
     html = `nooooo`;
   } else {
     for (const heroe of heroes) {
-      html += `<li class="js-listresults listresults__item" id="${heroe.id}">`;
+      let classFavouriteBackground = '';
+      const favouriteFoundIndex = favourites.findIndex((fav) => {
+        return fav.id === heroe.id;
+      });
+
+      if (favouriteFoundIndex !== -1) {
+        classFavouriteBackground = 'heroes__fav';
+      } else {
+        classFavouriteBackground = '';
+      }
+
+      html += `<li class="js-listresults listresults__item ${classFavouriteBackground}" id="${heroe.id}">`;
       html += `<img class="listresults__item--img" src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
       html += `<p  class="listresults__item--name" >${heroe.name}</p>`;
       html += `</li>`;
@@ -51,20 +62,20 @@ function cardListener() {
 
 function addFavourites(event) {
   const idCard = event.currentTarget.id;
-  const favoriteFound = heroes.find((fav) => {
+  const favouriteFound = heroes.find((fav) => {
     return fav.id === idCard;
   });
-  const favoriteFoundIndex = favourites.findIndex((fav) => {
+  const favouriteFoundIndex = favourites.findIndex((fav) => {
     return fav.id === idCard;
   });
-  if (favoriteFoundIndex === -1) {
-    favourites.push(favoriteFound);
+  if (favouriteFoundIndex === -1) {
+    favourites.push(favouriteFound);
   } else {
-    favourites.splice(favoriteFoundIndex, 1);
+    favourites.splice(favouriteFoundIndex, 1);
   }
-  console.log(heroes);
-  console.log(favourites);
+
   renderFavourites();
+  renderResults();
 }
 
 function renderFavourites() {
