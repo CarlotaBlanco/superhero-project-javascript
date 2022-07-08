@@ -4,10 +4,10 @@ const inputSearch = document.querySelector('.js-input');
 const buttonSearch = document.querySelector('.js-button');
 const resultsList = document.querySelector('.js-listElements');
 const resetButton = document.querySelector('.js-reset');
-const favouritesList = document.querySelector('.js-favourites');
+const favouriteList = document.querySelector('.js-favourite');
 
 let heroes = [];
-let favourites = [];
+let favourite = {};
 
 function validateInput() {
   if (inputSearch.value === '') {
@@ -34,19 +34,8 @@ function renderResults() {
     html = `nooooo`;
   } else {
     for (const heroe of heroes) {
-      let classFavouriteBackground = '';
-      const favouriteFoundIndex = favourites.findIndex((fav) => {
-        return fav.id === heroe.id;
-      });
-
-      if (favouriteFoundIndex !== -1) {
-        classFavouriteBackground = 'heroes__fav';
-      } else {
-        classFavouriteBackground = '';
-      }
-
-      html += `<div class="js-listresults  col-lg-3 col-md-3 col-xs-12 ${classFavouriteBackground}" id="${heroe.id}">`;
-      html += `<div class="card">`;
+      html += `<div class="js-listresults  col-lg-3 col-md-3 col-xs-12" id="${heroe.id}">`;
+      html += `<div class="card card_results">`;
       html += `<img class="card-img-top" src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
       html += `<div class="card-body">`;
       html += `<p>${heroe.name}</p>`;
@@ -61,53 +50,73 @@ function renderResults() {
 function cardListener() {
   const cardLi = document.querySelectorAll('.js-listresults');
   for (const card of cardLi) {
-    card.addEventListener('click', addFavourites);
+    card.addEventListener('click', addfavourite);
   }
 }
 
-function addFavourites(event) {
+function addfavourite(event) {
   const idCard = event.currentTarget.id;
   const favouriteFound = heroes.find((fav) => {
     return fav.id === idCard;
   });
-  const favouriteFoundIndex = favourites.findIndex((fav) => {
-    return fav.id === idCard;
-  });
-  if (favouriteFoundIndex === -1) {
-    favourites.push(favouriteFound);
-  } else {
-    favourites.splice(favouriteFoundIndex, 1);
-  }
+  favourite = favouriteFound;
 
-  renderFavourites();
+  renderfavourite();
   renderResults();
 }
 
-function renderFavourites() {
+function renderfavourite() {
   let html = '';
-  for (const favourite of favourites) {
-    html += `<div class="js-favourite_results col-3" id="${favourite.id}">`;
+  console.log(favourite);
+  if (Object.entries(favourite).length !== 0) {
+    html += `<div class="card">`;
+    html += `<div class="row g-0">`;
+
+    html += `<div class="js-favourite_results col-md-6 col-xs-12" id="${favourite.id}">`;
+
     html += `<img class="card_image" src="${favourite.image.url}" alt="Superheroe profile pic"/>`;
-    html += `<div class="listresults__item--text">`;
-    html += `<p>${favourite.name}</p>`;
+    html += `</div>`;
+    html += `<div class="col-md-6 col-xs-12 card_info">`;
+    html += `<h2 class="display-4">${favourite.name}</h2>`;
+    html += `<h5>${favourite.biography['full-name']}</h5>`;
+    html += `<p><em>${favourite.connections['group-affiliation']}</em></p>`;
+    html += `<ul class="list-group list-group-flush">`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Inteligencia<span class="badge badge-pill badge-primary">${favourite.powerstats.intelligence}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Fuerza<span class="badge badge-pill badge-primary">${favourite.powerstats.strength}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Velocidad<span class="badge badge-pill badge-primary">${favourite.powerstats.speed}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Durabilidad<span class="badge badge-pill badge-primary">${favourite.powerstats.durability}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Poder<span class="badge badge-pill badge-primary">${favourite.powerstats.power}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Combate<span class="badge badge-pill badge-primary">${favourite.powerstats.combat}</span></li>`;
+    html += `</ul>`;
+    html += `<button type="button" class="btn btn-primary button_close js_button_close">Cerrar</button>`;
+    html += `</div>`;
     html += `</div>`;
     html += `</div>`;
   }
-  favouritesList.innerHTML = html;
-  favouritesListener();
+
+  favouriteList.innerHTML = html;
+
+  buttonListener();
 }
 
-function favouritesListener() {
-  const favouriteLi = document.querySelectorAll('.js-favourite_results');
-  for (const favourite of favouriteLi) {
-    favourite.addEventListener('click', addFavourites);
-  }
+function buttonListener() {
+  const closeButton = document.querySelector('.js_button_close');
+
+  closeButton.addEventListener('click', closeInfoCard);
+}
+
+function closeInfoCard() {
+  console.log('hago clic');
+  favourite = {};
+  console.log(favourite);
+  renderfavourite();
+  renderResults();
 }
 
 function resetResults() {
   heroes = [];
   resultsList.innerHTML = '';
-  favouritesList.innerHTML = '';
+  favouriteList.innerHTML = '';
   inputSearch.value === '';
 }
 

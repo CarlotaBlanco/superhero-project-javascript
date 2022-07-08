@@ -1,4 +1,4 @@
-/*@import 'core/variables';
+/*
 
 @import 'components/code';
 @import 'components/links';
@@ -48,8 +48,41 @@
   .card-img-top {
     max-height: 20rem; } }
 
-.card {
+.card_results {
   margin: 10% 0;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.315); }
+
+.card_image {
+  width: 100%; }
+
+.card_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%; }
+  @media all and (min-width: 768px) {
+    .card_info {
+      padding: 2% 5% 2% 2%; } }
+
+.button_close {
+  margin: 5% 0 0;
+  float: right; }
+
+.form_section {
+  display: flex;
+  justify-content: center; }
+  .form_section input {
+    margin: 1.5%;
+    height: 2.5rem;
+    padding: 0.5rem; }
+  .form_section label {
+    font-size: larger;
+    font-style: italic; }
+  .form_section button {
+    margin-right: 1.5%; }
+
+.form-inline {
+  width: 100%;
+  justify-content: center; }
 
 /*# sourceMappingURL=main.css.map */

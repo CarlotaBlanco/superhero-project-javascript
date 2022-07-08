@@ -28,8 +28,8 @@
       <header class="page__header"></header>
 
       <main>
-        <section class="form">
-          <form>
+        <section class="form_section container">
+          <form class="form-inline">
             <label for="search">Busca a tu héroe:</label>
             <input
               class="js-input form__input"
@@ -38,13 +38,13 @@
               id="search"
               placeholder="Ej.: Batman"
             />
-            <input class="js-button button" type="submit" value="Buscar" />
-            <input class="js-reset reset" type="reset" value="Reset" />
+            <button type="button" class="btn btn-primary js-button">Buscar</button>
+            <button type="button" class="btn btn-danger js-reset">Reset</button>
           </form>
         </section>
         <section class="">
           <article class="container">
-            <div class="row js-favourites"></div>
+            <div class="js-favourite"></div>
           </article>
           <article class="container">
             <div class="row js-listElements listresults"></div>
