@@ -67,8 +67,9 @@ function addfavourite(event) {
 
 function renderfavourite() {
   let html = '';
-  console.log(favourite);
+
   if (Object.entries(favourite).length !== 0) {
+    window.scrollTo(0, 0);
     html += `<div class="card">`;
     html += `<div class="row g-0">`;
 
@@ -101,23 +102,23 @@ function renderfavourite() {
 
 function buttonListener() {
   const closeButton = document.querySelector('.js_button_close');
-
-  closeButton.addEventListener('click', closeInfoCard);
+  if (closeButton !== null) {
+    closeButton.addEventListener('click', closeInfoCard);
+  }
 }
 
 function closeInfoCard() {
-  console.log('hago clic');
   favourite = {};
-  console.log(favourite);
   renderfavourite();
   renderResults();
 }
 
 function resetResults() {
+  inputSearch.value = ' ';
   heroes = [];
   resultsList.innerHTML = '';
-  favouriteList.innerHTML = '';
-  inputSearch.value === '';
+  favouriteList.innerHTML =
+    '<h4 class="display-6 text-center"><em>Busca a tu héroe y haz clic en él para ver sus estadísticas</em></h4>';
 }
 
 function handleClickSearch(event) {
