@@ -11,24 +11,45 @@
   margin: 0;
   padding: 0; }
 
+/*
 .listresults {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  padding: 2%; }
+  padding: 2%;
+}
 
 .listresults__item {
   list-style-type: none;
-  margin: 2%; }
-
-.listresults__item--img {
-  width: 20rem;
-  height: 25rem; }
-
-.listresults__item--name {
-  background-color: black; }
+  margin: 2%;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
+}
+.listresults__item--text {
+  background-color: #e4f2fd;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  p {
+    color: #334454;
+    font-size: 1.2rem;
+  }
+}
 
 .heroes__fav {
-  border: solid 1px red; }
+  border: solid 1px red;
+}
+*/
+@media all and (min-width: 992px) {
+  .card-img-top {
+    max-height: 20rem; } }
+
+.card {
+  margin: 10% 0;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.315); }
 
 /*# sourceMappingURL=main.css.map */

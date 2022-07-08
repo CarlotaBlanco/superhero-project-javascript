@@ -27,6 +27,7 @@ function getApiData() {
       renderResults();
     });
 }
+
 function renderResults() {
   let html = '';
   if (heroes === undefined) {
@@ -44,10 +45,14 @@ function renderResults() {
         classFavouriteBackground = '';
       }
 
-      html += `<li class="js-listresults listresults__item ${classFavouriteBackground}" id="${heroe.id}">`;
-      html += `<img class="listresults__item--img" src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
-      html += `<p  class="listresults__item--name" >${heroe.name}</p>`;
-      html += `</li>`;
+      html += `<div class="js-listresults  col-lg-3 col-md-3 col-xs-12 ${classFavouriteBackground}" id="${heroe.id}">`;
+      html += `<div class="card">`;
+      html += `<img class="card-img-top" src="${heroe.image.url}" alt="Superheroe profile pic"/>`;
+      html += `<div class="card-body">`;
+      html += `<p>${heroe.name}</p>`;
+      html += `</div>`;
+      html += `</div>`;
+      html += `</div>`;
     }
   }
   resultsList.innerHTML = html;
@@ -81,10 +86,12 @@ function addFavourites(event) {
 function renderFavourites() {
   let html = '';
   for (const favourite of favourites) {
-    html += `<li class="js-favourite_results listresults__item" id="${favourite.id}">`;
-    html += `<img class="listresults__item--img" src="${favourite.image.url}" alt="Superheroe profile pic"/>`;
-    html += `<p  class="listresults__item--name" >${favourite.name}</p>`;
-    html += `</li>`;
+    html += `<div class="js-favourite_results col-3" id="${favourite.id}">`;
+    html += `<img class="card_image" src="${favourite.image.url}" alt="Superheroe profile pic"/>`;
+    html += `<div class="listresults__item--text">`;
+    html += `<p>${favourite.name}</p>`;
+    html += `</div>`;
+    html += `</div>`;
   }
   favouritesList.innerHTML = html;
   favouritesListener();

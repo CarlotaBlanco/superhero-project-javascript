@@ -1,3 +1,4 @@
+/*
 .listresults {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -8,16 +9,36 @@
 .listresults__item {
   list-style-type: none;
   margin: 2%;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
 }
-
-.listresults__item--img {
-  width: 20rem;
-  height: 25rem;
-}
-.listresults__item--name {
-  background-color: black;
+.listresults__item--text {
+  background-color: #e4f2fd;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  p {
+    color: #334454;
+    font-size: 1.2rem;
+  }
 }
 
 .heroes__fav {
   border: solid 1px red;
+}
+*/
+
+.card-img-top {
+  @media all and(min-width: 992px) {
+    max-height: 20rem;
+  }
+}
+
+.card {
+  margin: 10% 0;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
 }
