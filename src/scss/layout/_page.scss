@@ -34,7 +34,7 @@
 
 .card-img-top {
   @media all and(min-width: 992px) {
-    max-height: 20rem;
+    max-height: 25rem;
   }
 }
 
@@ -63,17 +63,14 @@
 }
 
 .form_section {
-  display: flex;
-  justify-content: center;
+  min-width: 50%;
+  text-align: right;
   input {
     margin: 1.5%;
     height: 2.5rem;
     padding: 0.5rem;
   }
-  label {
-    font-size: larger;
-    font-style: italic;
-  }
+
   button {
     margin-right: 1.5%;
   }
@@ -82,4 +79,8 @@
 .form-inline {
   width: 100%;
   justify-content: center;
+}
+
+.main {
+  padding-top: 10%;
 }

@@ -72,21 +72,21 @@ function renderfavourite() {
     html += `<div class="card">`;
     html += `<div class="row g-0">`;
 
-    html += `<div class="js-favourite_results col-md-6 col-xs-12" id="${favourite.id}">`;
+    html += `<div class="js-favourite_results col-md-4 col-xs-12" id="${favourite.id}">`;
 
     html += `<img class="card_image" src="${favourite.image.url}" alt="Superheroe profile pic"/>`;
     html += `</div>`;
-    html += `<div class="col-md-6 col-xs-12 card_info">`;
+    html += `<div class="col-md-8 col-xs-12 card_info">`;
     html += `<h2 class="display-4">${favourite.name}</h2>`;
     html += `<h5>${favourite.biography['full-name']}</h5>`;
     html += `<p><em>${favourite.connections['group-affiliation']}</em></p>`;
     html += `<ul class="list-group list-group-flush">`;
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Inteligencia<span class="badge badge-pill badge-primary">${favourite.powerstats.intelligence}</span></li>`;
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Fuerza<span class="badge badge-pill badge-primary">${favourite.powerstats.strength}</span></li>`;
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Velocidad<span class="badge badge-pill badge-primary">${favourite.powerstats.speed}</span></li>`;
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Durabilidad<span class="badge badge-pill badge-primary">${favourite.powerstats.durability}</span></li>`;
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Poder<span class="badge badge-pill badge-primary">${favourite.powerstats.power}</span></li>`;
-    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Combate<span class="badge badge-pill badge-primary">${favourite.powerstats.combat}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Inteligencia<span class="badge rounded-pill text-bg-primary">${favourite.powerstats.intelligence}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Fuerza<span class="badge rounded-pill text-bg-primary">${favourite.powerstats.strength}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Velocidad<span class="badge rounded-pill text-bg-primary">${favourite.powerstats.speed}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Durabilidad<span class="badge rounded-pill text-bg-primary">${favourite.powerstats.durability}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Poder<span class="badge rounded-pill text-bg-primary">${favourite.powerstats.power}</span></li>`;
+    html += `<li class="list-group-item d-flex justify-content-between align-items-center">Combate<span class="badge rounded-pill text-bg-primary">${favourite.powerstats.combat}</span></li>`;
     html += `</ul>`;
     html += `<button type="button" class="btn btn-primary button_close js_button_close">Cerrar</button>`;
     html += `</div>`;

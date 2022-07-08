@@ -46,7 +46,7 @@
 */
 @media all and (min-width: 992px) {
   .card-img-top {
-    max-height: 20rem; } }
+    max-height: 25rem; } }
 
 .card_results {
   margin: 10% 0;
@@ -69,20 +69,20 @@
   float: right; }
 
 .form_section {
-  display: flex;
-  justify-content: center; }
+  min-width: 50%;
+  text-align: right; }
   .form_section input {
     margin: 1.5%;
     height: 2.5rem;
     padding: 0.5rem; }
-  .form_section label {
-    font-size: larger;
-    font-style: italic; }
   .form_section button {
     margin-right: 1.5%; }
 
 .form-inline {
   width: 100%;
   justify-content: center; }
+
+.main {
+  padding-top: 10%; }
 
 /*# sourceMappingURL=main.css.map */
