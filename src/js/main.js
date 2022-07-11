@@ -119,7 +119,7 @@ function resetResults() {
   inputSearch.value = 'Busca a tu héroe';
   heroes = [];
   favouriteList.innerHTML = '';
-  html += `<div class="hero_main">`;
+  html += `<div class="main__hero">`;
   html += `<img src="./assets/images/superhero.png" alt="superheroe" />`;
   html += `<h4 class="display-6 text-center"><em>Busca a tu héroe y haz clic en él para ver sus estadísticas</em>
 </h4>`;
