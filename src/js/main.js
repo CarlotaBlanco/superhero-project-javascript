@@ -31,7 +31,11 @@ function getApiData() {
 function renderResults() {
   let html = '';
   if (heroes === undefined) {
-    html = `nooooo`;
+    html += `<div class='main__hero'>`;
+    html += `<h4 class='display-6 text-center'>`;
+    html += `<em>¡ERROR! Héroe no encontrado</em>`;
+    html += `</h4>`;
+    html += `</div>`;
   } else {
     for (const heroe of heroes) {
       html += `<div class="js-listresults  col-lg-3 col-md-3 col-xs-12" id="${heroe.id}">`;
