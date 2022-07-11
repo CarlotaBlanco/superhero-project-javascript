@@ -70,6 +70,7 @@ function renderfavourite() {
 
   if (Object.entries(favourite).length !== 0) {
     window.scrollTo(0, 0);
+
     html += `<div class="card">`;
     html += `<div class="row g-0">`;
 
@@ -78,7 +79,7 @@ function renderfavourite() {
     html += `<img class="card_image" src="${favourite.image.url}" alt="Superheroe profile pic"/>`;
     html += `</div>`;
     html += `<div class="col-md-8 col-xs-12 card_info">`;
-    html += `<h2 class="display-4">${favourite.name}</h2>`;
+    html += `<h2 class="display-5">${favourite.name}</h2>`;
     html += `<h5>${favourite.biography['full-name']}</h5>`;
     html += `<p><em>${favourite.connections['group-affiliation']}</em></p>`;
     html += `<ul class="list-group list-group-flush">`;
@@ -114,11 +115,16 @@ function closeInfoCard() {
 }
 
 function resetResults() {
-  inputSearch.value = ' ';
+  let html = '';
+  inputSearch.value = 'Busca a tu héroe';
   heroes = [];
-  resultsList.innerHTML = '';
-  favouriteList.innerHTML =
-    '<h4 class="display-6 text-center"><em>Busca a tu héroe y haz clic en él para ver sus estadísticas</em></h4>';
+  favouriteList.innerHTML = '';
+  html += `<div class="hero_main">`;
+  html += `<img src="./assets/images/superhero.png" alt="superheroe" />`;
+  html += `<h4 class="display-6 text-center"><em>Busca a tu héroe y haz clic en él para ver sus estadísticas</em>
+</h4>`;
+  html += `</div>`;
+  resultsList.innerHTML = html;
 }
 
 function handleClickSearch(event) {
