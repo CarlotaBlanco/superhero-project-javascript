@@ -120,7 +120,8 @@ function closeInfoCard() {
 
 function resetResults() {
   let html = '';
-  inputSearch.value = 'Busca a tu héroe';
+  inputSearch.value = '';
+  inputSearch.placeholder = 'Busca a tu héroe';
   heroes = [];
   favouriteList.innerHTML = '';
   html += `<div class="main__hero">`;
